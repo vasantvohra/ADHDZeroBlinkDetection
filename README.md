@@ -3,6 +3,9 @@ Attention Span detection of ADHD patients using a non intrusive method that only
 
 A Custom HAAR Cascade was created to detect the blinks. 
 
+Video Example: 
+https://youtu.be/yErXjEeZRts
+
 Main Dependency: 
 OpenCV 2.4.7.
 and others.
