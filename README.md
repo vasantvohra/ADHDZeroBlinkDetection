@@ -3,15 +3,15 @@ Attention Span detection of ADHD patients using a non intrusive method that only
 
 A Custom HAAR Cascade was created to detect the blinks. 
 
-#Video Example: 
+## Video Example: 
 ### https://youtu.be/yErXjEeZRts
 
-#Main Dependency: 
+## Main Dependency: 
 OpenCV 2.4.7.
 and others.
 
 
-#Constraints:
+## Constraints:
 
 However multiple constraints must be taking into consideration as the accuracy may fluctuate due to one of the following:
 Distance between the patient and the camera must be as if the patient is typing on the laptop’s keyboard.
@@ -19,7 +19,7 @@ Distance between the patient and the camera must be as if the patient is typing 
 - The background of the patient’s room must be clear and clean to avoid false positives.
 - Room’s lighting must be slightly strong to avoid shading on the patient’s face or different parts of the area in order to avoid false positives.
 
-#Main UI window explaination: 
+## Main UI window explaination: 
 
 Focus percentage: it means the percentage of time that the patient is focused during the experiment, the percentage is calculated by knowing the standard deviation from a specific threshold based on the averages of the team, however, to be able to estimate an accurate threshold, clinical trials should be made using the manual experimentation module and neurofeedback devices to be able to estimate research backed thresholds to eventually result in a more accurate focus percentage.
 Blinks Average: This is the blinking average of all the defined rate periods. Ex: if blinking defined rate is 10 seconds, and during an experiment duration of one minute of one min the user blinked 10 times, therefore the blinks average will be 10/(60/10).
@@ -28,7 +28,7 @@ Blinks max: The maximum number of blinks during the defined blinking rate durati
 Blinks min: The minimum number of blinks during the defined blinking rate duration period.
 Blinking rate standard deviation: The deviation from the mean value of the blinks number per the defined blinking detection rate. 
 
-#Logging blinks: 
+## Logging blinks: 
 
 An example of the logging format of the first timestamping file: 
  
