@@ -1,5 +1,4 @@
 import Tkinter as tk   # python3
-#import Tkinter as tk   # python
 
 TITLE_FONT = ("Helvetica", 18, "bold")
 
@@ -17,7 +16,6 @@ import glob
 from time import gmtime, strftime
 
 
-# import Tkinter as tk   # python
 
 TITLE_FONT = ("Helvetica", 18, "bold")
 global rateTime
@@ -156,7 +154,6 @@ class PageTwo(tk.Frame):
         def looping():
 
                 face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
-                # eye_cascade = cv2.CascadeClassifier("../haarcascades/fankosh2.xml")
                 eye_cascade = cv2.CascadeClassifier("CustomBlinkCascade.xml")
 
                 cap = cv2.VideoCapture(0)
@@ -175,7 +172,6 @@ class PageTwo(tk.Frame):
                 blinkDetected = False
                 oneEyeDetected = False
                 blinkDetectionThreshold = 0.5
-                #rateTime = 15
                 rateStart = True
                 timeNow = 0
                 timeLater = 0
@@ -283,14 +279,9 @@ class PageTwo(tk.Frame):
                             ii = 0
                             for (ex, ey, ew, eh) in eyes:
                                 if ii < 1 and ey < (h * .33) and (total > blinkDetectionThreshold) and oneEyeDetected == False:
-                                    ##                    eye = gray[ey: ey +  eh, ex : ex + ew]
-                                    ##                    retval, thresholdo = cv2.threshold(eye, 60, 255, cv2.THRESH_BINARY)
-                                    ##                    blackDotsNumber = cv2.countNonZero(thresholdo)
-                                    ##                    print blackDotsNumber
-                                    ##                    print float(ew)/float(blackDotsNumber)
-                                    ##                    if float(ew)/float(blackDotsNumber) < 0.019:
+                                    
                                     cv2.rectangle(roi_color, (ex, ey), (ex + ew, ey + eh), (255, 0, 0), 2)
-                                    # cv2.putText(roi_color,'Blink',(ex+ew,ey+eh), font, 0.5, (11,255,255), 2, cv2.LINE_AA)
+                                  
                                     patientTimeLog = open("patientBlinkTime.txt", 'a')
                                     print "#########################Blink Detected##############################"
                                     print >> patientTimeLog, 'Blink Detected'
@@ -325,7 +316,6 @@ class PageTwo(tk.Frame):
                                     blinkMaxResultLabel.config(text = str(max))
                                     blinkMinResultLabel.config(text = str(min))
                                     blinkAvgResultLabel.config(text = str(average))
-                                    # time.sleep(0.1)
                                     oneEyeDetected = True
                                     print "ex:", ex
                                     print "ew:", ew
@@ -339,7 +329,6 @@ class PageTwo(tk.Frame):
                                     print xs
                                     img = gray[y: y + h, x: x + w]  # its img[y: y + h, x: x + w]
                                     ii = ii + 1
-                                    # print im
 
                                     print "Start: ", start
                                     print "Total: ", total
@@ -347,34 +336,10 @@ class PageTwo(tk.Frame):
                             oneEyeDetected = False
 
 
-                            # count = 0
-                            # for i in x:
-                            # count = count + 1
-
-                            # if type(x) == list:
-                            # print x
-                            # print "blink"
-                            # for item in img:
-                            #   print item
-                            # print frame
-
-                            # if y > 0 and ex > 100 and ey>55:
-                            # img = gray[(y + ey +10): (y + ey ) +  (eh -10), (x + ex): (x+ex) +ew] #its img[y: y + h, x: x + w]
-                            # retval, thresholdo = cv2.threshold(img, 60, 255, cv2.THRESH_BINARY)
-                            # print "Number of black:"
-                            # print cv2.countNonZero(thresholdo)
-                            # if cv2.countNonZero(thresholdo) >1200:
-                            # print "Eyes Openned"
-                            # if cv2.countNonZero(thresholdo) <1200:
-                            # print "******************************Blink*******************************************"
-                            # Blinks = Blinks +1
-                            # print Blinks
-                            # cv2.imshow("Faces foundd", img)
-                    # cv2.resizeWindow("Faces found",1024, 1024);
+                            
                     cv2.putText(frame, 'Press Esc to end the experiment!', (10, 460), font, 1, (255, 255, 255), 2)
 
                     cv2.imshow("Faces found", frame)
-                    # cv2.imshow("webcam found", newframe)
                     cv2.imshow("Blink found", img)
                     k = cv2.waitKey(10) & 0xff
                     if k == 27:
