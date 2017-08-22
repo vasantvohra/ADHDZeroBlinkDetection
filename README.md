@@ -7,8 +7,9 @@ A Custom HAAR Cascade was created to detect the blinks.
 ### https://youtu.be/yErXjEeZRts
 
 ## Main Dependency: 
-OpenCV 2.4.7.
-and others.
+OpenCV 2.4.7
+Python
+
 
 
 ## Constraints:
